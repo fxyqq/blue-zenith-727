@@ -723,7 +723,8 @@ public class EntityRenderer implements IResourceManagerReloadListener {
                     if (movingobjectposition != null) {
                         double d7 = movingobjectposition.hitVec.distanceTo(new Vec3(d0, d1, d2));
 
-                        if (d7 < d3) {
+                        if (d7 < d3 && !(BlueZenith.moduleManager.getModule("ViewClip").getState()))
+                        {
                             d3 = d7;
                         }
                     }

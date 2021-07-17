@@ -229,6 +229,19 @@ public class WorldRenderer {
         }
     }
 
+    public void endVertex()
+    {
+        ++this.vertexCount;
+        this.func_181670_b(this.vertexFormat.func_181719_f());
+        this.field_181678_g = 0;
+        this.field_181677_f = this.vertexFormat.getElement(this.field_181678_g);
+
+        if (Config.isShaders())
+        {
+            SVertexBuilder.endAddVertex(this);
+        }
+    }
+
     public void reset() {
         this.vertexCount = 0;
         this.field_181677_f = null;

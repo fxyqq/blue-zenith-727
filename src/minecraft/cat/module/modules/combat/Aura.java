@@ -35,7 +35,7 @@ public class Aura extends Module {
     public Aura() {
         super("Aura", "", ModuleCategory.COMBAT, Keyboard.KEY_R, "aura", "ka", "killaura");
     }
-    EntityLivingBase target = null;
+    public static EntityLivingBase target = null;
     MillisTimer timer = new MillisTimer();
     long targetTime = 0;
     @Subscriber

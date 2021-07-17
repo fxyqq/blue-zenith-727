@@ -39,6 +39,10 @@ public class GuiChest extends GuiContainer
         this.fontRendererObj.drawString(this.upperChestInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 
+    public IInventory getLowerChestInventory() {
+        return lowerChestInventory;
+    }
+
     /**
      * Args : renderPartialTicks, mouseX, mouseY
      */

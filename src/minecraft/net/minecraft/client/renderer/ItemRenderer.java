@@ -369,6 +369,13 @@ public class ItemRenderer {
                     this.transformFirstPersonItem(equipProgress, swingProgress);
                     this.doBlockTransformations();
                     break;
+                case "Exhibition":
+                    this.transformFirstPersonItem(equipProgress, swingProgress);
+                    GlStateManager.translate(0, 0.235F, 0F);
+                    GL11.glRotated(-MathHelper.sin((float) (MathHelper.sqrt_float(swingProgress) * Math.PI)) * 40.0F, MathHelper.sin((float) (MathHelper.sqrt_float(swingProgress) * Math.PI)) / 2, 0.0F, 9.0F);
+                    GL11.glRotated(-MathHelper.sin((float) (MathHelper.sqrt_float(swingProgress) * Math.PI)) * 50.0F, 0.8F, MathHelper.sin((float) (MathHelper.sqrt_float(swingProgress) * Math.PI)) / 2, 0F);
+                    this.doBlockTransformations();
+                    break;
             }
         }else{
             this.transformFirstPersonItem(equipProgress, 0.0F);

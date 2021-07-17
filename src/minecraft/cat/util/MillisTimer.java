@@ -9,6 +9,15 @@ public final class MillisTimer {
         return System.currentTimeMillis() >= millis + ms;
     }
 
+    public boolean delay(final float milliSec) {
+        return this.getTime() - this.millis >= milliSec;
+    }
+
+    public long getTime() {
+        return System.nanoTime() / 1000000L;
+    }
+
+
     public long getTimeDiff(final long ms) {
         return (ms + millis) - System.currentTimeMillis();
     }

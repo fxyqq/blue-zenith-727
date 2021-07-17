@@ -1462,6 +1462,25 @@ public abstract class Entity implements ICommandSender {
         }
     }
 
+    public String getName()
+    {
+        if (this.hasCustomName())
+        {
+            return this.getCustomNameTag();
+        }
+        else
+        {
+            String s = EntityList.getEntityString(this);
+
+            if (s == null)
+            {
+                s = "generic";
+            }
+
+            return StatCollector.translateToLocal("entity." + s + ".name");
+        }
+    }
+
     /**
      * Reads the entity from NBT (calls an abstract helper method to read specialized data)
      */

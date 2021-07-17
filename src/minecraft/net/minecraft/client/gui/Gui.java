@@ -28,6 +28,7 @@ public class Gui {
         drawRect(startX, y, endX + 1, y + 1, color);
     }
 
+
     /**
      * Draw a 1 pixel wide vertical line. Args : x, y1, y2, color
      */
@@ -76,6 +77,44 @@ public class Gui {
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
     }
+
+    public static void drawRect(double translateX, double translateY, double scaledWidth, double d, int color)
+    {
+        if (translateX < scaledWidth)
+        {
+            int i = (int) translateX;
+            translateX = scaledWidth;
+            scaledWidth = i;
+        }
+
+        if (translateY < d)
+        {
+            int j = (int) translateY;
+            translateY = d;
+            d = j;
+        }
+
+        float f3 = (float)(color >> 24 & 255) / 255.0F;
+        float f = (float)(color >> 16 & 255) / 255.0F;
+        float f1 = (float)(color >> 8 & 255) / 255.0F;
+        float f2 = (float)(color & 255) / 255.0F;
+        Tessellator tessellator = Tessellator.getInstance();
+        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        GlStateManager.enableBlend();
+        GlStateManager.disableTexture2D();
+        GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+        GlStateManager.color(f, f1, f2, f3);
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION);
+        worldrenderer.pos((double)translateX, (double)d, 0.0D).endVertex();
+        worldrenderer.pos((double)scaledWidth, (double)d, 0.0D).endVertex();
+        worldrenderer.pos((double)scaledWidth, (double)translateY, 0.0D).endVertex();
+        worldrenderer.pos((double)translateX, (double)translateY, 0.0D).endVertex();
+        tessellator.draw();
+        GlStateManager.enableTexture2D();
+        GlStateManager.disableBlend();
+    }
+
+
     public static void drawRect(float x, float y, float x2, float y2, int color) {
         float f3 = (float) (color >> 24 & 255) / 255.0F;
         float f = (float) (color >> 16 & 255) / 255.0F;
